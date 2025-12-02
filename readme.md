@@ -18,38 +18,28 @@ The system consists of three core agents:
 ## Setup Instructions
 
 1. **Clone the repository**:
-```bash
 git clone https://github.com/Aadya04/multi_agent.git
 cd multi_agent
-Install dependencies:
 
-bash
-Copy code
+Install dependencies:
 pip install -qr requirements.txt
 pip install pyngrok nest_asyncio uvicorn --quiet
-Prepare environment variables (replace with your tokens):
 
-python
-Copy code
+Prepare environment variables (replace with your tokens):
 import os
 
 os.environ['HF_TOKEN'] = "<YOUR_HF_TOKEN>"
 os.environ['NGROK_AUTHTOKEN'] = "<YOUR_NGROK_TOKEN>"
+
 Create logs directory:
-
-bash
-Copy code
 mkdir logs
-Launch agents:
 
-bash
-Copy code
+Launch agents:
 python -m mcp_server.main > logs/mcp_server.log 2>&1 &
 python -m agents.customer_data_agent > logs/data_agent.log 2>&1 &
 python -m agents.support_agent > logs/support_agent.log 2>&1 &
 python -m agents.router_agent > logs/router_agent.log 2>&1 &
-Run test scenarios:
 
-bash
-Copy code
+Run test scenarios:
 python tests/run_scenarios.py
+

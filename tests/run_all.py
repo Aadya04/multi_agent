@@ -59,13 +59,20 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
 )
 
+from dotenv import load_dotenv
+
+load_dotenv()  # Reads the .env file
+
+api_key = os.getenv("GOOGLE_API_KEY")
+print("Loaded API key:", bool(api_key))
+
 # ============================================================================
 # DATABASE SETUP
 # ============================================================================
 import sqlite3
 import datetime
 
-DB = "mcp.db"
+DB = "support.db"
 
 def db_conn():
     conn = sqlite3.connect(DB, check_same_thread=False)
